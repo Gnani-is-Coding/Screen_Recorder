@@ -10,6 +10,8 @@
 .video {
     height: 90vh;
     width: 95vw;
+    background-color: black;
+    border-radius: 15px;
 }
 .btns-container{
     position: absolute;
