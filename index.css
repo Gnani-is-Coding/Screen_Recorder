@@ -42,6 +42,15 @@
 .animate-recording {
     animation: recording 1s infinite;
 }
+.timer-container {
+    position: absolute;
+    top: 15%;
+    left: 4rem;
+}
+.timer {
+    font-size: 2rem;
+    color: #efefef
+}
 
 @keyframes recording {
     0% {

@@ -1,14 +1,26 @@
 const captureBtn = document.querySelector(".capture-btn");
 const recBtn = document.querySelector(".record-btn");
 const videoElement = document.querySelector(".video")
+const timerElement = document.querySelector(".timer")
 
 const constraints = {
     audio: false,
     video: true
 }
-let chunks = []
 
+let chunks = []
+let time = 0
+let timerID;
 let isRecording = false
+
+function updateTimer() {
+    const hours = Math.floor(time / 3600)
+    time %= 3600
+    const minutes = Math.floor(time / 60)
+    time %= 60
+    const seconds = Math.floor(time)
+    timerElement.textContent = `${hours < 10 ? `0${hours}`: hours}:${minutes < 10 ? `0${minutes}`: minutes}:${seconds < 10 ? `0${seconds}`: seconds}`
+}
 
 navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
     videoElement.srcObject = stream
@@ -37,12 +49,18 @@ navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
     recBtn.addEventListener("click", () => {
         if (isRecording) {
             mediaRecorder.stop()
+            if (timerID){
+             clearInterval(timerID)
+            }
         } else {
             mediaRecorder.start()
+            timerID = setInterval(() => {
+                time++
+                updateTimer()
+            },1000)
         }
         recBtn.classList.toggle("animate-recording")
         isRecording = !isRecording
-        
     })
 
 
