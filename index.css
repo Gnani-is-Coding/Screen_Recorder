@@ -51,6 +51,20 @@
     font-size: 2rem;
     color: #efefef
 }
+.image-container {
+    position: absolute;
+    top: 15%;
+    right: 5rem;
+    color: #efefef;
+    display: none;
+}
+.image {
+    border-radius: 10px;
+    border: 5px solid rgb(209, 206, 206);
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+}
 
 @keyframes recording {
     0% {
