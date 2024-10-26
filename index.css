@@ -74,3 +74,36 @@
         transform: scale(1);
     }
 }
+.filters-container {
+    position: absolute;
+    top: 60%;
+    left: 10rem;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 2;
+}
+.filter-card {
+    height: 80px;
+    width: 140px;
+    background-color: #efefef; 
+    background-image: url("https://imgs.search.brave.com/2rZNRvSL7udc4pupDbEHeKPGeC1yY7Fq0duus2UmDDo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9oaXBz/LmhlYXJzdGFwcHMu/Y29tL2RpZ2l0YWxz/cHl1ay5jZG5kcy5u/ZXQvMTgvNDIvMTUz/OTYxMTUwNC00LXNw/aWRlcnZlcnNlLW5h/cDE3NTEwMTEtbG0t/djIuanBnP3Jlc2l6/ZT05ODA6Kg");
+    border-radius:5px;
+    cursor: pointer;
+    background-size: 100% 100%;
+    background-blend-mode: color-burn;
+    background-position: center;
+}
+.orange {
+    background-color: rgba(255, 166, 0, 0.459);
+}
+.yellow {
+    background-color: rgba(255, 255, 0, 0.315);
+}
+.blue {
+    background-color: rgba(0, 0, 255, 0.274);
+}
+.transparent {
+    background-color: transparent;
+}

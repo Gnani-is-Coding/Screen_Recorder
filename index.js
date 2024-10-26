@@ -91,6 +91,7 @@ captureBtn.addEventListener("click" , ()=> {
     imageElement.src = imageUrl
 
     downloadBtn.addEventListener("click", () => {
+        console.log(imageUrl)
         downloadImage(imageUrl)
     })
 
