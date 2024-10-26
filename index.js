@@ -5,9 +5,11 @@ const timerElement = document.querySelector(".timer")
 const imageContainer = document.querySelector(".image-container")
 const imageElement = document.querySelector(".image")
 const downloadBtn = document.querySelector(".save")
+const filterStyles = document.querySelectorAll(".filter-card")
+const filterElement = document.querySelector(".filter-layer")
 
 const constraints = {
-    audio: false,
+    audio: true,
     video: true
 }
 
@@ -15,6 +17,8 @@ let chunks = []
 let time = 0
 let timerID;
 let isRecording = false
+
+let currentFilterColor = "transparent"
 
 function updateTimer() {
     const hours = Math.floor(time / 3600)
@@ -95,6 +99,10 @@ captureBtn.addEventListener("click" , ()=> {
         downloadImage(imageUrl)
     })
 
+    //Filtering action
+    canvasContext.fillStyle = currentFilterColor
+    canvasContext.fillRect(0,0, canvas.width, canvas.height)
+
 
     imageContainer.style.display = "block"
     setTimeout(() => {
@@ -102,3 +110,12 @@ captureBtn.addEventListener("click" , ()=> {
     }, 200)
 })
 
+
+
+filterStyles.forEach(style => {
+    style.addEventListener("click", (e) => {
+        currentFilterColor = getComputedStyle(style).getPropertyValue("background-color")
+        console.log(currentFilterColor)
+        filterElement.style.backgroundColor = currentFilterColor
+    })
+})
